@@ -301,8 +301,8 @@
         },
         "isActive_": true,
         "certificateId_": "",
-        "appName_": "breweryappexample",
-        "appID_": "demo.inappbrowser",
+        "appName_": "csamobile",
+        "appID_": "csamobile.orangehouse",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -339,8 +339,8 @@
         },
         "isActive_": true,
         "certificateId_": "",
-        "appName_": "breweryappexample",
-        "appID_": "demo.inappbrowser",
+        "appName_": "csamobile",
+        "appID_": "csamobile.orangehouse",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -403,7 +403,7 @@
         "preferences_": {},
         "isActive_": false,
         "certificateId_": "",
-        "appName_": "breweryappexample",
+        "appName_": "csamobile",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
@@ -493,7 +493,7 @@
         "preferences_": {},
         "isActive_": true,
         "certificateId_": "",
-        "appName_": "breweryappexample",
+        "appName_": "csamobile",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
