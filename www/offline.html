@@ -66,43 +66,17 @@
        
           function onLoad() {
            document.addEventListener("offline", onOffline, false);
-           document.addEventListener("deviceready", onDeviceReady, false);
-           document.addEventListener("intel.xdk.device.hardware.back", exitCallback() {
-
-         // write your code
-    }, false);
+           document.addEventListener("deviceready", onDeviceReady, false);{
           }
           
-          function onOffline()
-{
-  window.location = "offline.html";
-}
           
           function onDeviceReady() {
-   var url = 'http://104.131.144.154/csa_demo';
-   var target = '_blank';
-   var options = "location=no"
-   var ref = cordova.InAppBrowser.open(url, target, options);
+           // Register the event listener
+           document.addEventListener("backbutton", onBackKeyDown, false);
+        }
 
-   ref.addEventListener('loadstart', loadstartCallback);
-   ref.addEventListener('loadstop', loadstopCallback);
-   ref.addEventListener('loadloaderror', loaderrorCallback);
-   ref.addEventListener('exit', exitCallback);
-
-
-   function loadstartCallback(event) {
-      console.log('Loading started: '  + event.url)
-   }
-
-   function loadstopCallback(event) {
-      console.log('Loading finished: ' + event.url)
-   }
-
-   function loaderrorCallback(error) {
-      console.log('Loading error: ' + error.message)
-   }
-
-   function exitCallback() {
+        
+   function onBackKeyDown() {
       navigator.app.exitApp();
    }
 }
