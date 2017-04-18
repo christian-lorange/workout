@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSA Mobile by OrangeHouse</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Global InAppBrowser reference
+    var iabRef = null;
+
+    // Inject our custom JavaScript into the InAppBrowser window
+    //
+    function replaceHeaderImage() {
+        iabRef.executeScript({
+            code: "var img=document.querySelector('#header img'); img.src='http://cordova.apache.org/images/cordova_bot.png';"
+        }, function() {
+            alert("Image Element Successfully Hijacked");
+        });
+    }
+
+    function iabClose(event) {
+         iabRef.removeEventListener('loadstop', replaceHeaderImage);
+         iabRef.removeEventListener('exit', iabClose);
+    }
+
+
+   
+        
+        
+        
+
+    </script>
+  </head>
+  <body onload="onLoad()">
+      
+        
+      <script src="cordova.js"></script>          <!-- "Phantom" cordova.js required for projects that use plugins -->
+
+    <script src="js/app.js"></script>           <!-- for your event code, see README and file comments for details -->
+    <script src="js/init-app.js"></script>      <!-- for your init code, see README and file comments for details -->
+    <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see file for details -->
+    <script src="js/util.js"></script>    
+      
+      <script type="text/javascript">
+       
+          function onLoad() {
+           document.addEventListener("offline", onOffline, false);
+           document.addEventListener("deviceready", onDeviceReady, false);
+          }
+          
+          function onOffline()
+{
+    window.location = "index.html";
+}
+          
+          function onDeviceReady() {
+   var url = 'http://104.131.144.154/csa_demo';
+   var target = '_blank';
+   var options = "location=no"
+   var ref = cordova.InAppBrowser.open(url, target, options);
+
+   ref.addEventListener('loadstart', loadstartCallback);
+   ref.addEventListener('loadstop', loadstopCallback);
+   ref.addEventListener('loadloaderror', loaderrorCallback);
+   ref.addEventListener('exit', exitCallback);
+
+   function loadstartCallback(event) {
+      console.log('Loading started: '  + event.url)
+   }
+
+   function loadstopCallback(event) {
+      console.log('Loading finished: ' + event.url)
+   }
+
+   function loaderrorCallback(error) {
+      console.log('Loading error: ' + error.message)
+   }
+
+   function exitCallback() {
+      navigator.app.exitApp();
+   }
+}
+      
+  
+      </script> 
+      
+  
+    <h1>CSA Mobile by OrangeHouse</h1>
+      <h2>It appears you do not currently have a data connection. A data connection is needed to see the latest information</h2>
+
+      
+<button id="id_btnExtPage" onclick="extPage()">Open Live Content</button>
+      
+  </body>
+</html>
