@@ -20,8 +20,6 @@
 <plugin name="cordova-plugin-device" spec="1.1.2"/>
 <plugin name="cordova-plugin-splashscreen" spec="3.2.2"/>
 <plugin name="cordova-plugin-inappbrowser" spec="1.4.0"/>
-<plugin name="onesignal-cordova-plugin-pgb-compat" spec="https://github.com/one-signal/OneSignal-Cordova-SDK.git#PGB-Compat"/> <!-- If available via Cordova registry; consider changing to an NPM reference. -->
-<plugin name="onesignal-cordova-dependencies-compat" spec="https://github.com/OneSignal/OneSignal-Cordova-Dependencies-Compat"/> <!-- If available via Cordova registry; consider changing to an NPM reference. -->
 <plugin name="cordova-plugin-network-information" spec="1.2.1"/>
 <plugin name="cordova-plugin-whitelist" spec="1.2.2"/>
 <platform  name="ios">
