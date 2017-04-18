@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/sample-in-app-browser/sample.zip",
       "projectGuid": "689c4779-e7ba-4123-9cf6-71bd38ff4955",
-      "lastModifiedDate": 1491498485035,
+      "lastModifiedDate": 1492547536215,
       "creationDate": 1481729288468
     },
     "XDK-app-designer": "false",
