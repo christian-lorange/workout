@@ -67,6 +67,10 @@
           function onLoad() {
            document.addEventListener("offline", onOffline, false);
            document.addEventListener("deviceready", onDeviceReady, false);
+           document.addEventListener("intel.xdk.device.hardware.back", exitCallback() {
+
+         // write your code
+    }, false);
           }
           
           function onOffline()
@@ -84,6 +88,7 @@
    ref.addEventListener('loadstop', loadstopCallback);
    ref.addEventListener('loadloaderror', loaderrorCallback);
    ref.addEventListener('exit', exitCallback);
+
 
    function loadstartCallback(event) {
       console.log('Loading started: '  + event.url)
