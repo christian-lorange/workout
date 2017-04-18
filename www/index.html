@@ -66,13 +66,13 @@
        
           function onLoad() {
            document.addEventListener("offline", onOffline, false);
-           document.addEventListener("deviceready", onDeviceReady, false);
+           document.addEventListener("online", onDeviceReady, false);
           }
           
           function onOffline()
 {
-    window.location = "offline.html";
-    
+   
+
 }
           
           function onDeviceReady() {
