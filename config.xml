@@ -52,15 +52,41 @@
 <preference name="android-signed" value="true"/>
 <preference name="AndroidLaunchMode" value="singleTop"/>
 </platform>
-<splash platform="android" src="package-assets/screen-mdpi-portrait.png" density="mdpi" width="320" height="470" orientation="portrait"/>
-<splash platform="android" src="package-assets/screen-hdpi-portrait.png" density="hdpi" width="480" height="640" orientation="portrait"/>
-<splash platform="android" src="package-assets/screen-xhdpi-portrait.png" density="xhdpi" width="720" height="960" orientation="portrait"/>
-<splash platform="android" src="package-assets/upload.png" density="mdpi" width="470" height="320" orientation="landscape"/>
-<splash platform="android" src="package-assets/screen-xxxhdpi-portrait.png" density="xhdpi" width="960" height="720" orientation="landscape"/>
-<icon platform="android" src="package-assets/Icon-ldpi.png" density="ldpi" width="36" height="36"/>
-<icon platform="android" src="package-assets/Icon-mdpi.png" density="mdpi" width="48" height="48"/>
-<icon platform="android" src="package-assets/Icon-hdpi.png" density="hdpi" width="72" height="72"/>
-<icon platform="android" src="package-assets/Icon-xhdpi.png" density="xhdpi" width="96" height="96"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-small.png" width="29" height="29"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-small@2x.png" width="58" height="58"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-small@3x.png" width="87" height="87"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-60.png" width="60" height="60"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-60@2x.png" width="120" height="120"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-60@3x.png" width="180" height="180"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-76.png" width="76" height="76"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-76@2x.png" width="152" height="152"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-40.png" width="40" height="40"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-40@2x.png" width="80" height="80"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon.png" width="57" height="57"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon@2x.png" width="114" height="114"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-72.png" width="72" height="72"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-72@2x.png" width="144" height="144"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-50.png" width="50" height="50"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-50@2x.png" width="100" height="100"/>
+<icon platform="ios" src="package-assets/iOS/Resources/icons/Icon-167.png" width="167" height="167"/>
+<splash src="package-assets/iOS/Resources/splash/Default@2x~iphone_640x960.png" orientation="portrait" height="960" width="640" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-small.png" height="29" width="29" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-small@2x.png" height="58" width="58" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-small@3x.png" height="87" width="87" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-60.png" height="60" width="60" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-60@2x.png" height="120" width="120" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-60@3x.png" height="180" width="180" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-76.png" height="76" width="76" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-76@2x.png" height="152" width="152" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-40.png" height="40" width="40" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-40@2x.png" height="80" width="80" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon.png" height="57" width="57" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon@2x.png" height="114" width="114" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-72.png" height="72" width="72" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-72@2x.png" height="144" width="144" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-50.png" height="50" width="50" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-50@2x.png" height="100" width="100" platform="ios"/>
+<icon src="package-assets/iOS/Resources/icons/Icon-167.png" height="167" width="167" platform="ios"/>
 <config-file platform="android" parent="/manifest/application" mode="merge"> 
     <activity android:launchMode="singleTop" />
 </config-file>
