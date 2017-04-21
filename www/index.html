@@ -69,12 +69,7 @@
            document.addEventListener("online", onDeviceReady, false);
           }
           
-          function onOffline()
-{
-   
-
-}
-          
+       
           function onDeviceReady() {
    var url = 'http://csademo.orangehousellc.com';
    var target = '_blank';
@@ -105,6 +100,10 @@
       
   
       </script> 
+
+
+      <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src * 'unsafe-inline' 'unsafe-eval'">
+
       
   
     <header>
