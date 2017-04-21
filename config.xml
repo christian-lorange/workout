@@ -85,6 +85,18 @@
 <icon src="package-assets/Icon-50.png" height="50" width="50" platform="ios"/>
 <icon src="package-assets/Icon-50@2x.png" height="100" width="100" platform="ios"/>
 <icon src="package-assets/Icon-167.png" height="167" width="167" platform="ios"/>
+
+<splash platform="android" src="package-assets/screen-mdpi-portrait.png" density="mdpi" width="320" height="470" orientation="portrait"/>
+<splash platform="android" src="package-assets/screen-hdpi-portrait.png" density="hdpi" width="480" height="640" orientation="portrait"/>
+<splash platform="android" src="package-assets/screen-xhdpi-portrait.png" density="xhdpi" width="720" height="960" orientation="portrait"/>
+<splash platform="android" src="package-assets/upload.png" density="mdpi" width="470" height="320" orientation="landscape"/>
+<splash platform="android" src="package-assets/screen-xxxhdpi-portrait.png" density="xhdpi" width="960" height="720" orientation="landscape"/>
+<icon platform="android" src="Icon-ldpi.png" density="ldpi" width="36" height="36"/>
+<icon platform="android" src="Icon-mdpi.png" density="mdpi" width="48" height="48"/>
+<icon platform="android" src="Icon-hdpi.png" density="hdpi" width="72" height="72"/>
+<icon platform="android" src="Icon-xhdpi.png" density="xhdpi" width="96" height="96"/>
+
+
 <config-file platform="android" parent="/manifest/application" mode="merge"> 
     <activity android:launchMode="singleTop" />
 </config-file>
