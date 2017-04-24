@@ -102,7 +102,8 @@ function browser() {
    var url = 'http://csademo.orangehousellc.com';
    var target = '_blank';
    var options = "location=no"
-   var ref = cordova.InAppBrowser.open(url, target, options);
+   var toolbar = "toolbar=no"
+   var ref = cordova.InAppBrowser.open(url, target, options, toolbar);
 
    ref.addEventListener('loadstart', loadstartCallback);
    ref.addEventListener('loadstop', loadstopCallback);
