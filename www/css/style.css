@@ -3054,7 +3054,7 @@ header {
 	float: left;
 	width: 90px;
 	height: 90px;
-	background: url(../img/logo_small.png) no-repeat center;
+	background: url(../assets/img/logo_small.png) no-repeat center;
 	background-size: cover;
 	display: block;
 
@@ -3072,7 +3072,7 @@ nav {
 
 	width: 40px;
 	height: 40px;
-	background: url(../img/menu-icon.png) center;
+	background: url(../assets/img/menu-icon.png) center;
 	background-size: cover;
 
 }
