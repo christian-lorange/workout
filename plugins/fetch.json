@@ -1,59 +1,32 @@
 {
-    "cordova-plugin-device": {
+    "cordova-plugin-whitelist": {
         "source": {
-            "type": "local",
-            "path": "C:\\Users\\clorange\\AppData\\Local\\Intel\\XDK\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-device"
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@~1.2.0"
         },
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-splashscreen": {
+    "cordova-plugin-console": {
         "source": {
-            "type": "local",
-            "path": "C:\\Users\\clorange\\AppData\\Local\\Intel\\XDK\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-splashscreen"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-inappbrowser": {
-        "source": {
-            "type": "local",
-            "path": "C:\\Users\\clorange\\AppData\\Local\\Intel\\XDK\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-inappbrowser"
+            "type": "registry",
+            "id": "cordova-plugin-console@~1.0.1"
         },
         "is_top_level": true,
         "variables": {}
     },
     "cordova-plugin-statusbar": {
         "source": {
-            "type": "local",
-            "path": "C:\\Users\\clorange\\AppData\\Local\\Intel\\XDK\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-statusbar"
+            "type": "registry",
+            "id": "cordova-plugin-statusbar@~1.0.1"
         },
         "is_top_level": true,
         "variables": {}
     },
-    "onesignal-cordova-plugin-pgb-compat": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/one-signal/OneSignal-Cordova-SDK.git",
-            "subdir": ".",
-            "ref": "PGB-Compat"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "onesignal-cordova-dependencies-compat": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/OneSignal/OneSignal-Cordova-Dependencies-Compat",
-            "subdir": "."
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-network-information": {
+    "cordova-plugin-splashscreen": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-network-information@1.2.1"
+            "id": "cordova-plugin-splashscreen@4.0.1"
         },
         "is_top_level": true,
         "variables": {}
