@@ -54,13 +54,13 @@ $$(document.body).on('click', '.read-blog', function(){
 
     $$.ajax({
         dataType: "json",
-        url: rootURL + "/wp-json/wp/v2/posts/" + $$(this).data('id'),
+        url: rootURL + "/wp-json/wp/v2/posts?_embed=true/" + $$(this).data('id'),
         success: function(msg) {
             // Dynamic page
             var mainView = singleBlog.addView('.view-main'),
                 newPageContent = '<div class="page" data-page="my-page">' +
                     '<div class="page-content inner-page">' +
-                        '<div class="content-block-thumbnail"><img data-src="' + msg.ccw_thumbnail +  '" class="lazy lazy-fadein"></div>' +
+                        '<div class="content-block-thumbnail"><img data-src="' + msg._embedded["wp:featuredmedia"][0].source_url +  '" class="lazy lazy-fadein"></div>' +
                         '<div class="content-block-title">' + msg.title.rendered +  '</div>' +
                         '<div class="content-block content-data">' + msg.content.rendered +  '</div>' +
                     '</div>' +
