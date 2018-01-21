@@ -54,7 +54,8 @@ $$(document.body).on('click', '.read-blog', function(){
 
     $$.ajax({
         dataType: "json",
-        url: rootURL + "/wp-json/wp/v2/posts?_embed=true/" + $$(this).data('id'),
+        url: rootURL + "/wp-json/wp/v2/posts/" + $$(this).data('id')+"?_embed=true",
+        
         success: function(msg) {
             // Dynamic page
             var mainView = singleBlog.addView('.view-main'),
