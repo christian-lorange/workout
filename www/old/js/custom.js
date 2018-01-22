@@ -1,9 +1,9 @@
 var rootURL = "https://csademo.orangehousellc.com";
-//var rootURL = "https://biplane.ru";
+//var rootURL = "http://jv.colostate.edu";
 
 $$.ajax({
     dataType: "json",
-    url: rootURL + "/wp-json/wp/v2/posts?_embed=true",
+    url: rootURL + "/wp-json/wp/v2/pages?_embed=true",
     success: function(data) {
 
         var html = "<ul>";
@@ -29,6 +29,7 @@ $$.ajax({
         html += "</ul>";
 
         $$('#app').html(html);
+        console.log(m)
     },
     error: function(m) {
         console.log(m)

@@ -123,7 +123,7 @@
             // Template7
             templates: {},
             template7Data: {},
-            template7Pages: false,
+            template7Pages: true,
             precompileTemplates: false,
             // Material
             material: false,
