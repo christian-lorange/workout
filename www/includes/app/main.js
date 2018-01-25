@@ -40,15 +40,36 @@ jQuery(document).ready(function ($) {
             $.get( url )
                 .done( function( response ) {
                     
-                    var posts = {
-                        posts: response
+                    var veggies = {
+                        veggies: response
                     }
                     
                     var template = $( '#blog-post-template' ).html()
                     var output = $( '#main-content' )
                                         
-                    var result = Mustache.to_html( template, posts )
+                    var result = Mustache.to_html( template, veggies )
                     output.append( result )
+                    
+                })
+                .fail( function() {
+                    alert( 'cannot load posts' )
+                })
+
+
+               var url2 = RESTURL + 'wp/v2/posts?_embed'
+
+                $.get( url2 )
+                .done( function( response ) {
+                    
+                    var posts = {
+                        posts: response
+                    }
+                    
+                    var template2 = $( '#blog-post-template' ).html()
+                    var output2 = $( '#main-content' )
+                                        
+                    var result2 = Mustache.to_html( template2, posts )
+                    output2.append( result2 )
                     
                 })
                 .fail( function() {
@@ -79,6 +100,26 @@ jQuery(document).ready(function ($) {
                     alert( 'cannot load categories' )
                 })
             
+
+            var url2 = RESTURL + 'wp/v2/categories'
+            
+            $.get( url2 )
+                .done( function( posts_response ) {
+                    
+                    var categories = {
+                        categories : posts_response
+                    }
+                    
+                    var template = $( '#blog-categories-template' ).html()
+                    var output2 = $( '#categories' )
+                                        
+                    var result = Mustache.to_html( template, categories )
+                    output2.append( result )
+                    
+                })
+                .fail( function() {
+                    alert( 'cannot load categories' )
+                })
         },
         
         loadSinglePost : function() {
