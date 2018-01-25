@@ -143,6 +143,10 @@ jQuery(document).ready(function ($) {
                     var result = Mustache.to_html( template, response )
                     output.html( result )
 
+                    $(document).ready(function(){
+                    $(this).scrollTop(0);
+});
+
 
                     
                 })
@@ -168,6 +172,9 @@ jQuery(document).ready(function ($) {
                     var result = Mustache.to_html( template, response )
                     output_posts.html( result )
 
+                    $(document).ready(function(){
+                    $(this).scrollTop(0);
+});
 
                     
                 })
