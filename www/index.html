@@ -2,38 +2,46 @@
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>CSA Mobile</title>
         <link rel="stylesheet" href="assets/css/foundation.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
         <link rel="stylesheet" href="assets/css/style.css">
+        
     </head>
     <body>
 
         <!-- Start Top Bar -->
-        <div class="top-bar">
-            <div class="top-bar-left">
-                <ul class="menu">
-                    <li class="menu-text site-title"></li>
-                </ul>
-            </div>
-            <div class="top-bar-right">
-<nav>
-   <ul>
-        <li><a class="flip" href="#home">Home</a></li>
-        <li><a id="X" class="flip" href="#veggies">This Weeks Veggies</a></li>
-        <li><a class="flip" href="#blog">News from the Farm</a></li>
+<!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a class="flip" href="#home">Home</a></li>
+                <li><a class="flip" href="#veggies">This Weeks Veggies</a></li>
+                <li><a class="flip" href="#blog">News from the Farm</a></li>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
 
-   </ul>
-</nav>
-            </div>
-        </div>
         <!-- End Top Bar -->
 
-        <div class="callout large primary">
+       <!-- <div class="callout large primary">
             <div class="row column text-center">
                 <h1 class="description"></h1>
             </div>
-        </div>
+        </div>-->
 
         <div class="panel" id="home">
             <div class="row" id="content">
@@ -59,6 +67,9 @@
         <script src="includes/lib/js/jquery.min.js"></script>
         <script src="includes/lib/js/mustache.min.js"></script>
         <script src="includes/app/main.js"></script>
+        <script src="includes/app/bootstrap.js"></script>
+        <script src="includes/app/npm.js"></script>
+        <script src="includes/app/custom.js"></script>
        
 
  
@@ -100,7 +111,7 @@
 
         <div class="blog-post" data-id="{{id}}">
 
-           <button onclick="myFunction()">Back</button>
+           <button onclick="back_button()">Back</button>
 
             <h3>{{title.rendered}} </h3>
             <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">
@@ -114,7 +125,7 @@
 
 
 <script type="text/javascript">
-function myFunction() {
+function back_button() {
 
  $("#main-content").empty();
  

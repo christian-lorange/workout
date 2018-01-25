@@ -3060,10 +3060,11 @@ header {
 
 }
 
-nav {
+#nav {
 
 	float: right;
-	padding: 20px;	
+	padding: 20px;
+	background: url(../assets/img/menu-icon.png) center;	
 
 }
 
@@ -3162,3 +3163,55 @@ li {
 	padding-bottom:50px;
 	display:block;
 }
+
+/* Breakpoint to show/hide the mobile navbar is 980 */
+@media (max-width: 979px) {
+  /* 
+    We hide the sub-menu items here 
+    Note that depending on the template, this class might change
+  */
+  .rstpl-main-menu-position .navbar .nav .dropdown-menu {
+    display: none;
+  }
+  /* 
+    We will position the newly created button in the right side of the menu item
+    Note that depending on the template, you might want to change the style of this button
+  */
+  .navbar .nav > li .sub-menu-opener {
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-height: 50px;
+    display: inline-block;
+    text-align: center;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px;
+  }
+  /*
+    we add some transition effects so we get some sort of feedback on click
+  */  
+  .navbar .nav > li .sub-menu-opener > .icon-plus {
+    transition: all 0.2s ease-in-out;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  /*
+    when the item is clicked, the + will rotate 45 degrees
+  */
+  .navbar .nav > li .sub-menu-opener.opened > .icon-plus {
+    transition: all 0.2s ease-in-out;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+  /*
+    when the normal navbar is displayed, the link is not visible
+  */  
+@media (min-width: 980px) {
+  .navbar .nav > li .sub-menu-opener {
+    display: none;
+  }
+}
+ 
