@@ -3127,17 +3127,15 @@ li {
 		position: absolute;
 		padding: 20px;
 		background: #fff;
-		border: 5px solid #008000;
-		right: 20px;
 		top: 60px;
-		width: 75%;
+		width: 100%;
 		border-radius: 4px 0 4px 4px;
 
 	}
 
 	nav li {
 
-		text-align: center;
+		text-align: left;
 		width: 100%;
 		padding: 10px 0;
 		margin: 0;
@@ -3147,7 +3145,12 @@ li {
 	nav:hover ul {
 
 		display: block;
+		background: lightblue
 
+	}
+
+	.navbar-default .navbar-nav > li > a {
+		font-weight: bold;
 	}
 }
 
@@ -3215,3 +3218,8 @@ li {
   }
 }
  
+
+ button.btn.btn-primary.btn-lg.text-center {
+ 	width: 100%;
+ 	margin-bottom: 20px;
+ }
