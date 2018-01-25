@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>CSA Mobile</title>
-        <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+        <link rel="stylesheet" href="assets/css/foundation.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
@@ -17,7 +17,14 @@
                 </ul>
             </div>
             <div class="top-bar-right">
+<nav>
+   <ul>
+        <li><a class="flip" href="#home">Home</a></li>
+        <li><a class="flip" href="#veggies">This Weeks Veggies</a></li>
+        <li><a class="flip" href="#blog">News from the Farm</a></li>
 
+   </ul>
+</nav>
             </div>
         </div>
         <!-- End Top Bar -->
@@ -28,19 +35,44 @@
             </div>
         </div>
 
-        <div class="row" id="content">
-            <!-- Main contents of the app -->
-            <div class="medium-12 columns" id="main-content"></div>
+        <div class="panel" id="home">
+            <div class="row" id="content">
+                <!-- Main contents of the app -->
+               <p>Place Holder Text </p>
+            </div>
         </div>
 
-        <div class="row" id="content">
-            <!-- Main contents of the app -->
-            <div class="medium-12 columns" id="main-content2"></div>
+        <div class="panel" id="veggies">
+            <div class="row" id="content">
+                <!-- Main contents of the app -->
+                <div class="medium-12 columns" id="main-content"></div>
+            </div>
+        </div>
+
+        <div class="panel" id="blog">
+            <div class="row" id="content">
+                <!-- Main contents of the app -->
+                <div class="medium-12 columns" id="main-content2"></div>
+            </div>
         </div>
 
         <script src="includes/lib/js/jquery.min.js"></script>
         <script src="includes/lib/js/mustache.min.js"></script>
         <script src="includes/app/main.js"></script>
+
+        
+        <script type="text/javascript">
+           $(document).ready(function(){    
+            $(".flip").on("click", function(e) {  
+        
+        
+            var target = $(this).attr("href");
+            $(target).slideToggle("fast");
+            $(".panel").not(target).hide();
+            e.preventDefault();
+            });
+            });
+        </script>
         
         <script type="text/template" id="blog-post-template">
         {{#veggies}}
@@ -73,9 +105,7 @@
 
             <div>{{{content.rendered}}}</div>
 
-            <div class="callout">
-                
-            </div>
+            
         </div>
 
         </script>

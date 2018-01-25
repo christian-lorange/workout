@@ -3148,3 +3148,17 @@ li {
 		display: block;
 
 	}
+}
+
+
+/*Formatting panels so that only one is shown at a time. Home is displayed on loading*/
+.panel {
+	padding-bottom:50px;
+	display:none;
+
+}
+
+#home.panel {
+	padding-bottom:50px;
+	display:block;
+}
