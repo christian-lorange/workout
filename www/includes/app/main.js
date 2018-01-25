@@ -8,7 +8,8 @@ jQuery(document).ready(function ($) {
             
             this.getSiteData()
             this.loadPosts()
-            this.loadCategories()
+            this.loadPosts2()
+            */ this.loadCategories() /*
             this.loadEvents()
             
         },
@@ -17,6 +18,8 @@ jQuery(document).ready(function ($) {
             
             $( '#main-content' ).on( 'click', '.blog-post h3', this.loadSinglePost )
             $( '#main-content' ).on( 'click', '.blog-post .thumbnail', this.loadSinglePost )
+            $( '#main-content2' ).on( 'click', '.blog-post h3', this.loadSinglePost2 )
+            $( '#main-content2' ).on( 'click', '.blog-post .thumbnail', this.loadSinglePost2 )
             
         },
         
@@ -55,21 +58,24 @@ jQuery(document).ready(function ($) {
                     alert( 'cannot load posts' )
                 })
 
+        },
 
-               var url2 = RESTURL + 'wp/v2/posts?_embed'
+        loadPosts2 : function() {
 
-                $.get( url2 )
+               var url = RESTURL + 'wp/v2/posts?_embed'
+
+                $.get( url )
                 .done( function( response ) {
                     
                     var posts = {
                         posts: response
                     }
                     
-                    var template2 = $( '#blog-post-template' ).html()
-                    var output2 = $( '#main-content' )
+                    var template = $( '#blog-post-template' ).html()
+                    var output_posts = $( '#main-content2' )
                                         
-                    var result2 = Mustache.to_html( template2, posts )
-                    output2.append( result2 )
+                    var result = Mustache.to_html( template, posts )
+                    output_posts.append( result)
                     
                 })
                 .fail( function() {
@@ -78,7 +84,7 @@ jQuery(document).ready(function ($) {
             
         },
         
-        loadCategories : function() {
+       /* loadCategories : function() {
             
             var url = RESTURL + 'wp/v2/categories'
             
@@ -110,17 +116,17 @@ jQuery(document).ready(function ($) {
                         categories : posts_response
                     }
                     
-                    var template = $( '#blog-categories-template' ).html()
+                    var template2 = $( '#blog-categories-template' ).html()
                     var output2 = $( '#categories' )
                                         
-                    var result = Mustache.to_html( template, categories )
-                    output2.append( result )
+                    var result2 = Mustache.to_html( template2, categories )
+                    output2.append( result2 )
                     
                 })
                 .fail( function() {
                     alert( 'cannot load categories' )
                 })
-        },
+        },*/
         
         loadSinglePost : function() {
             
@@ -136,6 +142,33 @@ jQuery(document).ready(function ($) {
                                         
                     var result = Mustache.to_html( template, response )
                     output.html( result )
+
+
+                    
+                })
+                .fail( function() {
+                    alert( 'cannot load post' )
+                })
+            
+        },
+
+
+        loadSinglePost2 : function() {
+            
+            var id2 = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
+            var url = RESTURL + 'wp/v2/posts/' + id2 + '?_embed'
+            
+            $.get( url )
+                .done( function( response ) {
+
+                    
+                    var template = $( '#single-post-template' ).html()
+                    var output_posts = $( '#main-content2' )
+                                        
+                    var result = Mustache.to_html( template, response )
+                    output_posts.html( result )
+
+
                     
                 })
                 .fail( function() {
