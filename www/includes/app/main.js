@@ -7,8 +7,8 @@ jQuery(document).ready(function ($) {
         init : function() {
             
             this.getSiteData()
-            this.loadPosts()
-            this.loadPosts2()
+            this.loadveggies()
+            this.loadblog()
             */ this.loadCategories() /*
             this.loadEvents()
             
@@ -16,10 +16,10 @@ jQuery(document).ready(function ($) {
         
         loadEvents : function() {
             
-            $( '#main-content' ).on( 'click', '.blog-post h3', this.loadSinglePost )
-            $( '#main-content' ).on( 'click', '.blog-post .thumbnail', this.loadSinglePost )
-            $( '#main-content2' ).on( 'click', '.blog-post h3', this.loadSinglePost2 )
-            $( '#main-content2' ).on( 'click', '.blog-post .thumbnail', this.loadSinglePost2 )
+            $( '#veggie-content' ).on( 'click', '.blog-post h3', this.loadveggieposts )
+            $( '#veggie-content' ).on( 'click', '.blog-post .thumbnail', this.loadveggieposts )
+            $( '#blog' ).on( 'click', '.blog-post h3', this.loadblogpost )
+            $( '#blog' ).on( 'click', '.blog-post .thumbnail', this.loadblogpost )
             
         },
         
@@ -36,9 +36,9 @@ jQuery(document).ready(function ($) {
 
         },
         
-        loadPosts : function() {
+        loadveggies : function() {
             
-            var url = RESTURL + 'wp/v2/pages?_embed'
+            var url = RESTURL + 'wp/v2/pages?_embed=true/&exclude=12, 48,2,772,1811,696,2187,2213,2180,2248'
             
             $.get( url )
                 .done( function( response ) {
@@ -48,7 +48,7 @@ jQuery(document).ready(function ($) {
                     }
                     
                     var template = $( '#blog-post-template' ).html()
-                    var output = $( '#main-content' )
+                    var output = $( '#veggie-content' )
                                         
                     var result = Mustache.to_html( template, veggies )
                     output.append( result )
@@ -60,7 +60,7 @@ jQuery(document).ready(function ($) {
 
         },
 
-        loadPosts2 : function() {
+        loadblog : function() {
 
                var url = RESTURL + 'wp/v2/posts?_embed'
 
@@ -72,7 +72,7 @@ jQuery(document).ready(function ($) {
                     }
                     
                     var template = $( '#blog-post-template' ).html()
-                    var output_posts = $( '#main-content2' )
+                    var output_posts = $( '#blog' )
                                         
                     var result = Mustache.to_html( template, posts )
                     output_posts.append( result)
@@ -84,51 +84,8 @@ jQuery(document).ready(function ($) {
             
         },
         
-       /* loadCategories : function() {
-            
-            var url = RESTURL + 'wp/v2/categories'
-            
-            $.get( url )
-                .done( function( response ) {
-                    
-                    var categories = {
-                        categories : response
-                    }
-                    
-                    var template = $( '#blog-categories-template' ).html()
-                    var output = $( '#categories' )
-                                        
-                    var result = Mustache.to_html( template, categories )
-                    output.append( result )
-                    
-                })
-                .fail( function() {
-                    alert( 'cannot load categories' )
-                })
-            
-
-            var url2 = RESTURL + 'wp/v2/categories'
-            
-            $.get( url2 )
-                .done( function( posts_response ) {
-                    
-                    var categories = {
-                        categories : posts_response
-                    }
-                    
-                    var template2 = $( '#blog-categories-template' ).html()
-                    var output2 = $( '#categories' )
-                                        
-                    var result2 = Mustache.to_html( template2, categories )
-                    output2.append( result2 )
-                    
-                })
-                .fail( function() {
-                    alert( 'cannot load categories' )
-                })
-        },*/
         
-        loadSinglePost : function() {
+        loadveggieposts : function() {
             
             var id = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
             var url = RESTURL + 'wp/v2/pages/' + id + '?_embed'
@@ -138,7 +95,7 @@ jQuery(document).ready(function ($) {
 
                     
                     var template = $( '#single-post-template' ).html()
-                    var output = $( '#main-content' )
+                    var output = $( '#veggie-content' )
                                         
                     var result = Mustache.to_html( template, response )
                     output.html( result )
@@ -157,7 +114,7 @@ jQuery(document).ready(function ($) {
         },
 
 
-        loadSinglePost2 : function() {
+        loadblogpost : function() {
             
             var id2 = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
             var url = RESTURL + 'wp/v2/posts/' + id2 + '?_embed'
@@ -167,7 +124,7 @@ jQuery(document).ready(function ($) {
 
                     
                     var template = $( '#single-post-template' ).html()
-                    var output_posts = $( '#main-content2' )
+                    var output_posts = $( '#blog' )
                                         
                     var result = Mustache.to_html( template, response )
                     output_posts.html( result )
