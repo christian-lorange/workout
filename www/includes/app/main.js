@@ -9,7 +9,8 @@ jQuery(document).ready(function ($) {
             this.getSiteData()
             this.loadveggies()
             this.loadblog()
-            */ this.loadCategories() /*
+            this.loadlocations()
+            /* this.loadCategories() */
             this.loadEvents()
             
         },
@@ -20,6 +21,8 @@ jQuery(document).ready(function ($) {
             $( '#veggie-content' ).on( 'click', '.blog-post .thumbnail', this.loadveggieposts )
             $( '#blog' ).on( 'click', '.blog-post h3', this.loadblogpost )
             $( '#blog' ).on( 'click', '.blog-post .thumbnail', this.loadblogpost )
+            $( '#locations-content' ).on( 'click', '.blog-post h3', this.loadlocationsposts )
+            $( '#locations-content' ).on( 'click', '.blog-post .thumbnail', this.loadlocationsposts )
             
         },
         
@@ -57,6 +60,31 @@ jQuery(document).ready(function ($) {
                 .fail( function() {
                     alert( 'cannot load posts' )
                 })
+
+        },
+
+        loadlocations : function() {
+          
+            var url = RESTURL + 'wp/v2/pages?_embed=true/&include=2187'
+            
+            $.get( url )
+                .done( function( response ) {
+                    
+                    var veggies = {
+                        veggies: response
+                    }
+                    
+                    var template = $( '#blog-post-template' ).html()
+                    var output = $( '#locations-content' )
+                                        
+                    var result = Mustache.to_html( template, veggies )
+                    output.append( result )
+                    
+                })
+                .fail( function() {
+                    alert( 'cannot load posts' )
+                })
+
 
         },
 
@@ -102,7 +130,35 @@ jQuery(document).ready(function ($) {
 
                     $(document).ready(function(){
                     $(this).scrollTop(0);
-});
+                });
+
+
+                    
+                })
+                .fail( function() {
+                    alert( 'cannot load post' )
+                })
+            
+        },
+
+            loadlocationsposts : function() {
+            
+            var id = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
+            var url = RESTURL + 'wp/v2/pages/' + id + '?_embed=true'
+            
+            $.get( url )
+                .done( function( response ) {
+
+                    
+                    var template = $( '#single-post-template' ).html()
+                    var output = $( '#locations-content' )
+                                        
+                    var result = Mustache.to_html( template, response )
+                    output.html( result )
+
+                    $(document).ready(function(){
+                    $(this).scrollTop(0);
+                });
 
 
                     
