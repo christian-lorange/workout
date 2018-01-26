@@ -30,7 +30,6 @@
                 <li><a class="flip" href="#veggies">This Weeks Veggies</a></li>
                 <li><a class="flip" href="#blog">News from the Farm</a></li>
                 <li><a class="flip" href="#locations">Pick-up Locations</a></li>
-                <li><a class="flip" href="#events">Events</a></li>
             </ul>
             
           </div><!--/.nav-collapse -->
@@ -123,6 +122,22 @@
         {{/posts}}
         </script>
 
+        <script type="text/template" id="locations-post-template">
+        {{#veggies}}
+        <div class="blog-post" data-id="{{id}}">
+         
+            <p>{{{content.rendered}}} </p>
+            
+          
+        </div>
+        {{/veggies}}
+
+        
+        </script>
+
+           </script>
+
+       
         <script type="text/template" id="single-post-template">
 
         <div class="blog-post" data-id="{{id}}">

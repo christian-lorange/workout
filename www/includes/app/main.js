@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
             this.loadlocations()
             /* this.loadCategories() */
             this.loadActions()
-            this.loadevents()
+    
             
         },
         
@@ -22,10 +22,7 @@ jQuery(document).ready(function ($) {
             $( '#veggie-content' ).on( 'click', '.blog-post .thumbnail', this.loadveggieposts )
             $( '#blog' ).on( 'click', '.blog-post h3', this.loadblogpost )
             $( '#blog' ).on( 'click', '.blog-post .thumbnail', this.loadblogpost )
-            $( '#locations-content' ).on( 'click', '.blog-post h3', this.loadlocationsposts )
-            $( '#locations-content' ).on( 'click', '.blog-post .thumbnail', this.loadlocationsposts )
-            $( '#events-content' ).on( 'click', '.blog-post h3', this.loadeventposts )
-            $( '#events-content' ).on( 'click', '.blog-post .thumbnail', this.loadeventposts )
+           
             
         },
         
@@ -68,7 +65,7 @@ jQuery(document).ready(function ($) {
 
         loadlocations : function() {
           
-            var url = RESTURL + 'wp/v2/pages?_embed=true/&include=2187'
+            var url = RESTURL + 'wp/v2/pages?_embed=true/&include=2180'
             
             $.get( url )
                 .done( function( response ) {
@@ -77,11 +74,12 @@ jQuery(document).ready(function ($) {
                         veggies: response
                     }
                     
-                    var template = $( '#blog-post-template' ).html()
+                    var template = $( '#locations-post-template' ).html()
                     var output = $( '#locations-content' )
                                         
                     var result = Mustache.to_html( template, veggies )
                     output.append( result )
+
                     
                 })
                 .fail( function() {
@@ -91,30 +89,7 @@ jQuery(document).ready(function ($) {
 
         },
 
-        loadevents : function() {
-          
-            var url = RESTURL + 'wp/v2/pages?_embed=true/&include=2248'
-            
-            $.get( url )
-                .done( function( response ) {
-                    
-                    var veggies = {
-                        veggies: response
-                    }
-                    
-                    var template = $( '#blog-post-template' ).html()
-                    var output = $( '#events-content' )
-                                        
-                    var result = Mustache.to_html( template, veggies )
-                    output.append( result )
-                    
-                })
-                .fail( function() {
-                    alert( 'cannot load posts' )
-                })
-
-
-        },
+        
 
         loadblog : function() {
 
@@ -169,33 +144,7 @@ jQuery(document).ready(function ($) {
             
         },
 
-            loadlocationsposts : function() {
             
-            var id = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
-            var url = RESTURL + 'wp/v2/pages/' + id + '?_embed=true'
-            
-            $.get( url )
-                .done( function( response ) {
-
-                    
-                    var template = $( '#single-post-template' ).html()
-                    var output = $( '#locations-content' )
-                                        
-                    var result = Mustache.to_html( template, response )
-                    output.html( result )
-
-                    $(document).ready(function(){
-                    $(this).scrollTop(0);
-                });
-
-
-                    
-                })
-                .fail( function() {
-                    alert( 'cannot load post' )
-                })
-            
-        },
 
         loadeventposts : function() {
             

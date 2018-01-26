@@ -3223,3 +3223,11 @@ li {
  	width: 100%;
  	margin-bottom: 20px;
  }
+
+ iframe {
+    width: 100%;
+}
+
+.location.noPhoto {
+	padding-top: 20px;
+}
