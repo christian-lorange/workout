@@ -3240,10 +3240,12 @@ li {
 	display: none;
 }
 
-
+/* Make gallery images full width */
 #gallery img {
 	width: 100%;
-	pointer-events: none;
-  	cursor: default;
-  	pointer-events: none !important; 
+}
+
+/* Disable click on gallery items */
+.ngg-gallery-thumbnail a {
+  pointer-events: none;
 }
