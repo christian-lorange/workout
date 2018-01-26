@@ -3239,3 +3239,11 @@ li {
 .slideshowlink {
 	display: none;
 }
+
+
+#gallery img {
+	width: 100%;
+	pointer-events: none;
+  	cursor: default;
+  	pointer-events: none !important; 
+}
