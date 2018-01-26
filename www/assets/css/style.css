@@ -3319,8 +3319,13 @@ li {
     top: 40%;
     }
 
-.container a {
-	color:black;
-	font-size: 2em;
-	font-weight: bolder;
-}
+	.container a {
+		color:black;
+		font-size: 2em;
+		font-weight: bolder;
+		}	
+
+/* Formatting of banner image navigation */
+.nav_text {
+	background-color: white
+	}

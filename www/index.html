@@ -11,13 +11,13 @@
     </head>
     <body>
 
-        <!-- Start Top Bar -->
+
 <!-- Static navbar -->
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
+              <span class="sr-only"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -36,78 +36,69 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
+<!-- End of static navbar -->
 
-        <!-- End Top Bar -->
-
-       <!-- <div class="callout large primary">
-            <div class="row column text-center">
-                <h1 class="description"></h1>
-            </div>
-        </div>-->
-
+<!-- "Home" page content-->
         <div class="panel" id="home">
             <div class="row" id="content">
-                <!-- Main contents of the app -->
-               <div class="medium-12 columns" id="home-content">
-                <div class="home_section" id="home_section1"> 
-                    <div class="container"><a class="flip" href="#veggies" style="background-color: white">This Weeks Veggies</a></div>
+                <div class="medium-12 columns" id="home-content">
+                    <div class="home_section" id="home_section1"> 
+                        <div class="container"><a class="flip nav_text" href="#veggies">This Weeks Veggies</a></div>
+                    </div>
+                    <div class="home_section" id="home_section2"> 
+                        <div class="container"><a class="flip nav_text" href="#blog">News from the Farm</a></div>
+                    </div>
+                    <div class="home_section" id="home_section3"> 
+                        <div class="container"><a class="flip nav_text" href="#locations">Find your CSA</a></div>
+                    </div>
+                    <div class="home_section" id="home_section4"> 
+                        <div class="container"><a class="flip nav_text" href="#gallery">Gallery</a></div>
+                    </div>
                 </div>
-                <div class="home_section" id="home_section2"> 
-                    <div class="container"><a class="flip" href="#blog" style="background-color: white">News from the Farm</a></div>
-                </div>
-                <div class="home_section" id="home_section3"> 
-                    <div class="container"><a class="flip" href="#locations" style="background-color: white">Find your CSA</a></div>
-                </div>
-                <div class="home_section" id="home_section4"> 
-                    <div class="container"><a class="flip" href="#gallery" style="background-color: white">Gallery</a></div>
-                </div>
-
-
-               </div>
             </div>
         </div>
+<!-- End of "Home" page content-->
 
+<!-- "Subpage"content sections -->
         <div class="panel" id="veggies">
             <div class="row" id="content">
-                <!-- Main contents of the app -->
                 <div class="medium-12 columns" id="veggie-content"></div>
             </div>
         </div>
 
         <div class="panel" id="blog">
             <div class="row" id="content">
-                <!-- Main contents of the app -->
                 <div class="medium-12 columns" id="blog"></div>
             </div>
         </div>
 
         <div class="panel" id="locations">
             <div class="row" id="content">
-                <!-- Main contents of the app -->
                 <div class="medium-12 columns" id="locations-content"></div>
             </div>
         </div>
 
          <div class="panel" id="gallery">
             <div class="row" id="content">
-                <!-- Main contents of the app -->
                 <div class="medium-12 columns" id="gallery-content">
                    
                 </div>
             </div>
         </div>
+<!-- End of "subpage" content sections -->
 
+<!-- External javascript -->
         <script src="includes/lib/js/jquery.min.js"></script>
         <script src="includes/lib/js/mustache.min.js"></script>
         <script src="includes/app/main.js"></script>
         <script src="includes/app/bootstrap.js"></script>
         <script src="includes/app/npm.js"></script>
-        <script src="includes/app/custom.js"></script>
-        
-       
+        <script src="includes/app/custom.js"></script>   
+ <!-- End of external javascript -->      
 
  
-        
+<!-- Internal Scripting -->
+    <!-- Navbar flip menu sections -->
         <script type="text/javascript">
            $(document).ready(function(){    
             $(".flip").on("click", function(e) {  
@@ -120,224 +111,300 @@
             });
             });
         </script>
-        
+    <!-- End of navbar flip menu sections -->
+
+
+    <!-- Templates used by mustache -->   
+        <!-- "Blog Template" Front summary page filtering to detailed subpages (Title and featured image) -->
         <script type="text/template" id="blog-post-template">
+
         {{#veggies}}
         <div class="blog-post" data-id="{{id}}">
             <h3>{{title.rendered}}</h3>
             <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">
-
-           
         </div>
         {{/veggies}}
+
 
         {{#posts}}
         <div class="blog-post" data-id="{{id}}">
             <h3>{{title.rendered}}</h3>
-            <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">
-
-           
+            <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">       
         </div>
         {{/posts}}
         </script>
 
+        <!-- "Location Template" Render all html content (no selective - all shown) -->
         <script type="text/template" id="locations-post-template">
         {{#veggies}}
         <div class="blog-post" data-id="{{id}}">
-         
             <p>{{{content.rendered}}} </p>
-            
-          
         </div>
-        {{/veggies}}
-
-        
+        {{/veggies}}       
         </script>
 
-
+        <!-- "Location Template" Render all html content (no selective - all shown) Currently redundent of location -->
         <script type="text/template" id="gallery-post-template">
         {{#veggies}}
         <div class="blog-post" data-id="{{id}}">
-         
             <p>{{{content.rendered}}} </p>
-
-            
-          
         </div>
         {{/veggies}}
-
-        
         </script>          
 
-       
+        <!-- "Single Post Template" Render title and content - Include back/refresh button to go back to category level (blog tempate) -->   
         <script type="text/template" id="single-post-template">
-
         <div class="blog-post" data-id="{{id}}">
-
            <button onclick="back_button()" class="btn btn-primary btn-lg text-center">Back</button>
-
             <h3>{{title.rendered}} </h3>
             <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">
-
-            <div>{{{content.rendered}}}</div>
-
-            
+            <div>{{{content.rendered}}}</div>          
         </div>
-
         </script>
+    <!-- End of templates used by mustache --> 
 
+    <!-- Scripting that clears out appended content and reloads main.js script (repulls data) --> 
+        <script type="text/javascript">
+        function back_button() {
 
-<script type="text/javascript">
-function back_button() {
+         $("#veggie-content").empty();
+         $("#blog").empty();   
 
- $("#veggie-content").empty();
- 
- $("#blog").empty();   
+        /*Duplicate of main.js - required for clearing and reloading subpage sections */
+        const RESTURL = 'https://csademo.orangehousellc.com/wp-json/'
 
-jQuery(document).ready(function ($) {
-
-    const RESTURL = 'https://csademo.orangehousellc.com/wp-json/'
-
-    var app = {
-        
-        init : function() {
-            
-            this.getSiteData()
-            this.loadveggies()
-            this.loadblog()
-            */ this.loadCategories() /*
-            this.loadEvents()
-            
-        },
-        
-        loadEvents : function() {
-            
-            $( '#veggie-content' ).on( 'click', '.blog-post h3', this.loadveggieposts )
-            $( '#veggie-content' ).on( 'click', '.blog-post .thumbnail', this.loadveggieposts )
-            $( '#blog' ).on( 'click', '.blog-post h3', this.loadblogpost )
-            $( '#blog' ).on( 'click', '.blog-post .thumbnail', this.loadblogpost )
-            
-        },
-        
-        getSiteData : function() {
-            
-            $.get( RESTURL )
-                .done( function( response ) {
-                    $( '.site-title' ).html( response.name )
-                    $( '.description' ).html( response.description )
-                })
-                .fail( function() {
-                    alert( 'failed to call specified URL' )
-                })
-
-        },
-        
-        loadveggies : function() {
-            
-            var url = RESTURL + 'wp/v2/pages?_embed=true/&exclude=12, 48,2,772,1811,696,2187,2213,2180,2248'
-            
-            $.get( url )
-                .done( function( response ) {
+            var app = {
+                
+                init : function() {
                     
-                    var veggies = {
-                        veggies: response
-                    }
-                    
-                    var template = $( '#blog-post-template' ).html()
-                    var output = $( '#veggie-content' )
-                                        
-                    var result = Mustache.to_html( template, veggies )
-                    output.append( result )
-                    
-                })
-                .fail( function() {
-                    alert( 'cannot load posts' )
-                })
-
-        },
-
-        loadblog : function() {
-
-               var url = RESTURL + 'wp/v2/posts?_embed'
-
-                $.get( url )
-                .done( function( response ) {
-                    
-                    var posts = {
-                        posts: response
-                    }
-                    
-                    var template = $( '#blog-post-template' ).html()
-                    var output_posts = $( '#blog' )
-                                        
-                    var result = Mustache.to_html( template, posts )
-                    output_posts.append( result)
-                    
-                })
-                .fail( function() {
-                    alert( 'cannot load posts' )
-                })
+                    this.getSiteData()
+                    this.loadveggies()
+                    this.loadblog()
+                    this.loadlocations()
+                    this.loadgallery()
+                   /* this.loadCategories() */
+                    this.loadActions()
             
-        },
-        
-        
-        loadveggieposts : function() {
-            
-            var id = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
-            var url = RESTURL + 'wp/v2/pages/' + id + '?_embed'
-            
-            $.get( url )
-                .done( function( response ) {
+                    
+                },
+                
+                loadActions : function() {
+                    
+                    $( '#veggie-content' ).on( 'click', '.blog-post h3', this.loadveggieposts )
+                    $( '#veggie-content' ).on( 'click', '.blog-post .thumbnail', this.loadveggieposts )
+                    $( '#blog' ).on( 'click', '.blog-post h3', this.loadblogpost )
+                    $( '#blog' ).on( 'click', '.blog-post .thumbnail', this.loadblogpost )
+                   
+                    
+                },
+                
+                getSiteData : function() {
+                    
+                    $.get( RESTURL )
+                        .done( function( response ) {
+                            $( '.site-title' ).html( response.name )
+                            $( '.description' ).html( response.description )
+                        })
+                        .fail( function() {
+                            alert( 'failed to call specified URL' )
+                        })
+
+                },
+                
+                loadveggies : function() {
+                    
+                    var url = RESTURL + 'wp/v2/pages?_embed=true/&exclude=12, 48,2,772,1811,696,2187,2213,2180,2248,2307'
+                    
+                    $.get( url )
+                        .done( function( response ) {
+                            
+                            var veggies = {
+                                veggies: response
+                            }
+                            
+                            var template = $( '#blog-post-template' ).html()
+                            var output = $( '#veggie-content' )
+                                                
+                            var result = Mustache.to_html( template, veggies )
+                            output.append( result )
+                            
+                        })
+                        .fail( function() {
+                            alert( 'cannot load posts' )
+                        })
+
+                },
+
+                loadlocations : function() {
+                  
+                    var url = RESTURL + 'wp/v2/pages?_embed=true/&include=2180'
+                    
+                    $.get( url )
+                        .done( function( response ) {
+                            
+                            var veggies = {
+                                veggies: response
+                            }
+                            
+                            var template = $( '#locations-post-template' ).html()
+                            var output = $( '#locations-content' )
+                                                
+                            var result = Mustache.to_html( template, veggies )
+                            output.append( result )
+
+                            
+                        })
+                        .fail( function() {
+                            alert( 'cannot load posts' )
+                        })
+
+
+                },
+
+                loadgallery : function() {
+                  
+                    var url = RESTURL + 'wp/v2/pages?_embed=true/&include=2307'
+                    
+                    $.get( url )
+                        .done( function( response ) {
+                            
+                            var veggies = {
+                                veggies: response
+                            }
+                            
+                            var template = $( '#gallery-post-template' ).html()
+                            var output = $( '#gallery-content' )
+                                                
+                            var result = Mustache.to_html( template, veggies )
+                            output.append( result )
+
+                            })
+                        .fail( function() {
+                            alert( 'cannot load posts' )
+                        })
+
+
+                },
+                
+                
+
+                loadblog : function() {
+
+                       var url = RESTURL + 'wp/v2/posts?_embed'
+
+                        $.get( url )
+                        .done( function( response ) {
+                            
+                            var posts = {
+                                posts: response
+                            }
+                            
+                            var template = $( '#blog-post-template' ).html()
+                            var output_posts = $( '#blog' )
+                                                
+                            var result = Mustache.to_html( template, posts )
+                            output_posts.append( result)
+                            
+                            })
+                        .fail( function() {
+                            alert( 'cannot load posts' )
+                        })
+                    
+                },
+                
+                
+                loadveggieposts : function() {
+                    
+                    var id = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
+                    var url = RESTURL + 'wp/v2/pages/' + id + '?_embed'
+                    
+                    $.get( url )
+                        .done( function( response ) {
+
+                            
+                            var template = $( '#single-post-template' ).html()
+                            var output = $( '#veggie-content' )
+                                                
+                            var result = Mustache.to_html( template, response )
+                            output.html( result )
+
+                            $(document).ready(function(){
+                            $(this).scrollTop(0);
+                            });
+
+
+                            
+                        })
+                        .fail( function() {
+                            alert( 'cannot load post' )
+                        })
+                    
+                },
 
                     
-                    var template = $( '#single-post-template' ).html()
-                    var output = $( '#veggie-content' )
-                                        
-                    var result = Mustache.to_html( template, response )
-                    output.html( result )
 
-
+                loadeventposts : function() {
                     
-                })
-                .fail( function() {
-                    alert( 'cannot load post' )
-                })
-            
-        },
-
-
-        loadblogpost : function() {
-            
-            var id2 = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
-            var url = RESTURL + 'wp/v2/posts/' + id2 + '?_embed'
-            
-            $.get( url )
-                .done( function( response ) {
-
+                    var id = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
+                    var url = RESTURL + 'wp/v2/pages/' + id + '?_embed=true'
                     
-                    var template = $( '#single-post-template' ).html()
-                    var output_posts = $( '#blog' )
-                                        
-                    var result = Mustache.to_html( template, response )
-                    output_posts.html( result )
+                    $.get( url )
+                        .done( function( response ) {
+
+                            
+                            var template = $( '#single-post-template' ).html()
+                            var output = $( '#events-content' )
+                                                
+                            var result = Mustache.to_html( template, response )
+                            output.html( result )
+
+                            $(document).ready(function(){
+                            $(this).scrollTop(0);
+                            });
 
 
+                            
+                        })
+                        .fail( function() {
+                            alert( 'cannot load post' )
+                        })
                     
-                })
-                .fail( function() {
-                    alert( 'cannot load post' )
-                })
-            
+                },
+
+
+                loadblogpost : function() {
+                    
+                    var id2 = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
+                    var url = RESTURL + 'wp/v2/posts/' + id2 + '?_embed'
+                    
+                    $.get( url )
+                        .done( function( response ) {
+
+                            
+                            var template = $( '#single-post-template' ).html()
+                            var output_posts = $( '#blog' )
+                                                
+                            var result = Mustache.to_html( template, response )
+                            output_posts.html( result )
+
+                            $(document).ready(function(){
+                            $(this).scrollTop(0);
+                            });
+
+                            
+                        })
+                        .fail( function() {
+                            alert( 'cannot load post' )
+                        })
+                    
+                }
+           
+                
+            }
+
+            app.init();
         }
-   
-        
-    }
-
-    app.init();
-
-});
-}
-</script>
+        </script>
 
         
         
