@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
             this.loadblog()
             this.loadlocations()
             this.loadgallery()
-            /* this.loadCategories() */
+           /* this.loadCategories() */
             this.loadActions()
     
             
@@ -115,6 +115,7 @@ jQuery(document).ready(function ($) {
 
 
         },
+        
         
 
         loadblog : function() {
