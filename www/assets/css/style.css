@@ -3224,10 +3224,18 @@ li {
  	margin-bottom: 20px;
  }
 
+
+/* Make maps fit better*/
  iframe {
     width: 100%;
 }
 
+/* Adding some spacing btwn location */
 .location.noPhoto {
 	padding-top: 20px;
+}
+
+/* Remove slide show link from gallery */
+.slideshowlink {
+	display: none;
 }

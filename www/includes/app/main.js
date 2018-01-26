@@ -10,6 +10,7 @@ jQuery(document).ready(function ($) {
             this.loadveggies()
             this.loadblog()
             this.loadlocations()
+            this.loadgallery()
             /* this.loadCategories() */
             this.loadActions()
     
@@ -41,7 +42,7 @@ jQuery(document).ready(function ($) {
         
         loadveggies : function() {
             
-            var url = RESTURL + 'wp/v2/pages?_embed=true/&exclude=12, 48,2,772,1811,696,2187,2213,2180,2248'
+            var url = RESTURL + 'wp/v2/pages?_embed=true/&exclude=12, 48,2,772,1811,696,2187,2213,2180,2248,2307'
             
             $.get( url )
                 .done( function( response ) {
@@ -89,6 +90,31 @@ jQuery(document).ready(function ($) {
 
         },
 
+        loadgallery : function() {
+          
+            var url = RESTURL + 'wp/v2/pages?_embed=true/&include=2307'
+            
+            $.get( url )
+                .done( function( response ) {
+                    
+                    var veggies = {
+                        veggies: response
+                    }
+                    
+                    var template = $( '#gallery-post-template' ).html()
+                    var output = $( '#gallery-content' )
+                                        
+                    var result = Mustache.to_html( template, veggies )
+                    output.append( result )
+
+                    
+                })
+                .fail( function() {
+                    alert( 'cannot load posts' )
+                })
+
+
+        },
         
 
         loadblog : function() {

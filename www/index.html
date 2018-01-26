@@ -30,6 +30,7 @@
                 <li><a class="flip" href="#veggies">This Weeks Veggies</a></li>
                 <li><a class="flip" href="#blog">News from the Farm</a></li>
                 <li><a class="flip" href="#locations">Pick-up Locations</a></li>
+                <li><a class="flip" href="#gallery">Gallery</a></li>
             </ul>
             
           </div><!--/.nav-collapse -->
@@ -72,10 +73,12 @@
             </div>
         </div>
 
-         <div class="panel" id="events">
+         <div class="panel" id="gallery">
             <div class="row" id="content">
                 <!-- Main contents of the app -->
-                <div class="medium-12 columns" id="events-content"></div>
+                <div class="medium-12 columns" id="gallery-content">
+                   
+                </div>
             </div>
         </div>
 
@@ -85,6 +88,7 @@
         <script src="includes/app/bootstrap.js"></script>
         <script src="includes/app/npm.js"></script>
         <script src="includes/app/custom.js"></script>
+        
        
 
  
@@ -135,7 +139,19 @@
         
         </script>
 
-           </script>
+
+        <script type="text/template" id="gallery-post-template">
+        {{#veggies}}
+        <div class="blog-post" data-id="{{id}}">
+         
+            <p>{{{content.rendered}}} </p>
+            
+          
+        </div>
+        {{/veggies}}
+
+        
+        </script>          
 
        
         <script type="text/template" id="single-post-template">
@@ -304,12 +320,8 @@ jQuery(document).ready(function ($) {
     app.init();
 
 });
-
-
-
 }
 </script>
-
 
         
         
