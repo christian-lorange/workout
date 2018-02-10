@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>CSA Mobile</title>
+        <title>My Wine</title>
         <link rel="stylesheet" href="assets/css/foundation.min.css">
         <link rel="stylesheet" href="assets/css/bootstrap.css">
         <link rel="stylesheet" href="assets/css/style.css">
@@ -27,7 +27,7 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a class="flip" href="#home">Home</a></li>
-                <li><a class="flip" href="#veggies">This Weeks Veggies</a></li>
+                <li><a class="flip" href="#wine">This Months Wines</a></li>
                 <li><a class="flip" href="#blog">News from the Farm</a></li>
                 <li><a class="flip" href="#locations">Pick-up Locations</a></li>
                 <li><a class="flip" href="#gallery">Gallery</a></li>
@@ -43,9 +43,9 @@
             <div class="row" id="content">
                 <div class="medium-12 columns" id="home-content">
                     <div class="home_section" id="home_section1"> 
-                        <div class="container"><a class="flip nav_text" href="#veggies">This Weeks Veggies</a></div>
+                        <div class="container"><a class="flip nav_text" href="#wine">This Months Wines</a></div>
                     </div>
-                    <div class="home_section" id="home_section2"> 
+<!--                    <div class="home_section" id="home_section2"> 
                         <div class="container"><a class="flip nav_text" href="#blog">News from the Farm</a></div>
                     </div>
                     <div class="home_section" id="home_section3"> 
@@ -54,19 +54,20 @@
                     <div class="home_section" id="home_section4"> 
                         <div class="container"><a class="flip nav_text" href="#gallery">Gallery</a></div>
                     </div>
+-->                    
                 </div>
             </div>
         </div>
 <!-- End of "Home" page content-->
 
 <!-- "Subpage"content sections -->
-        <div class="panel" id="veggies">
+        <div class="panel" id="wine">
             <div class="row" id="content">
-                <div class="medium-12 columns" id="veggie-content"></div>
+                <div class="medium-12 columns" id="wine-content"></div>
             </div>
         </div>
 
-        <div class="panel" id="blog">
+<!--        <div class="panel" id="blog">
             <div class="row" id="content">
                 <div class="medium-12 columns" id="blog"></div>
             </div>
@@ -85,6 +86,7 @@
                 </div>
             </div>
         </div>
+-->
 <!-- End of "subpage" content sections -->
 
 <!-- External javascript -->
@@ -118,12 +120,12 @@
         <!-- "Blog Template" Front summary page filtering to detailed subpages (Title and featured image) -->
         <script type="text/template" id="blog-post-template">
 
-        {{#veggies}}
+        {{#wine}}
         <div class="blog-post" data-id="{{id}}">
             <h3>{{title.rendered}}</h3>
             <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">
         </div>
-        {{/veggies}}
+        {{/wine}}
 
 
         {{#posts}}
@@ -136,20 +138,20 @@
 
         <!-- "Location Template" Render all html content (no selective - all shown) -->
         <script type="text/template" id="locations-post-template">
-        {{#veggies}}
+        {{#wine}}
         <div class="blog-post" data-id="{{id}}">
             <p>{{{content.rendered}}} </p>
         </div>
-        {{/veggies}}       
+        {{/wine}}       
         </script>
 
         <!-- "Location Template" Render all html content (no selective - all shown) Currently redundent of location -->
         <script type="text/template" id="gallery-post-template">
-        {{#veggies}}
+        {{#wine}}
         <div class="blog-post" data-id="{{id}}">
             <p>{{{content.rendered}}} </p>
         </div>
-        {{/veggies}}
+        {{/wine}}
         </script>          
 
         <!-- "Single Post Template" Render title and content - Include back/refresh button to go back to category level (blog tempate) -->   
@@ -167,18 +169,18 @@
         <script type="text/javascript">
         function back_button() {
 
-         $("#veggie-content").empty();
+         $("#wine-content").empty();
          $("#blog").empty();   
 
         /*Duplicate of main.js - required for clearing and reloading subpage sections */
-        const RESTURL = 'https://csademo.orangehousellc.com/wp-json/'
+        const RESTURL = 'https://wine.orangehousellc.com/wp-json/'
 
             var app = {
                 
                 init : function() {
                     
                     this.getSiteData()
-                    this.loadveggies()
+                    this.loadwine()
                     this.loadblog()
                     this.loadlocations()
                     this.loadgallery()
@@ -190,8 +192,8 @@
                 
                 loadActions : function() {
                     
-                    $( '#veggie-content' ).on( 'click', '.blog-post h3', this.loadveggieposts )
-                    $( '#veggie-content' ).on( 'click', '.blog-post .thumbnail', this.loadveggieposts )
+                    $( '#wine-content' ).on( 'click', '.blog-post h3', this.loadwineposts )
+                    $( '#wine-content' ).on( 'click', '.blog-post .thumbnail', this.loadwineposts )
                     $( '#blog' ).on( 'click', '.blog-post h3', this.loadblogpost )
                     $( '#blog' ).on( 'click', '.blog-post .thumbnail', this.loadblogpost )
                    
@@ -211,21 +213,21 @@
 
                 },
                 
-                loadveggies : function() {
+                loadwine : function() {
                     
                     var url = RESTURL + 'wp/v2/pages?_embed=true/&exclude=12, 48,2,772,1811,696,2187,2213,2180,2248,2307'
                     
                     $.get( url )
                         .done( function( response ) {
                             
-                            var veggies = {
-                                veggies: response
+                            var wine = {
+                                wine: response
                             }
                             
                             var template = $( '#blog-post-template' ).html()
-                            var output = $( '#veggie-content' )
+                            var output = $( '#wine-content' )
                                                 
-                            var result = Mustache.to_html( template, veggies )
+                            var result = Mustache.to_html( template, wine )
                             output.append( result )
                             
                         })
@@ -242,14 +244,14 @@
                     $.get( url )
                         .done( function( response ) {
                             
-                            var veggies = {
-                                veggies: response
+                            var wine = {
+                                wine: response
                             }
                             
                             var template = $( '#locations-post-template' ).html()
                             var output = $( '#locations-content' )
                                                 
-                            var result = Mustache.to_html( template, veggies )
+                            var result = Mustache.to_html( template, wine )
                             output.append( result )
 
                             
@@ -268,14 +270,14 @@
                     $.get( url )
                         .done( function( response ) {
                             
-                            var veggies = {
-                                veggies: response
+                            var wine = {
+                                wine: response
                             }
                             
                             var template = $( '#gallery-post-template' ).html()
                             var output = $( '#gallery-content' )
                                                 
-                            var result = Mustache.to_html( template, veggies )
+                            var result = Mustache.to_html( template, wine )
                             output.append( result )
 
                             })
@@ -313,7 +315,7 @@
                 },
                 
                 
-                loadveggieposts : function() {
+                loadwineposts : function() {
                     
                     var id = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
                     var url = RESTURL + 'wp/v2/pages/' + id + '?_embed'
@@ -323,7 +325,7 @@
 
                             
                             var template = $( '#single-post-template' ).html()
-                            var output = $( '#veggie-content' )
+                            var output = $( '#vwine-content' )
                                                 
                             var result = Mustache.to_html( template, response )
                             output.html( result )

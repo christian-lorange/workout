@@ -1,13 +1,13 @@
 jQuery(document).ready(function ($) {
 
-    const RESTURL = 'https://csademo.orangehousellc.com/wp-json/'
+    const RESTURL = 'https://wine.orangehousellc.com/wp-json/'
 
     var app = {
         
         init : function() {
             
             this.getSiteData()
-            this.loadveggies()
+            this.loadwine()
             this.loadblog()
             this.loadlocations()
             this.loadgallery()
@@ -19,8 +19,8 @@ jQuery(document).ready(function ($) {
         
         loadActions : function() {
             
-            $( '#veggie-content' ).on( 'click', '.blog-post h3', this.loadveggieposts )
-            $( '#veggie-content' ).on( 'click', '.blog-post .thumbnail', this.loadveggieposts )
+            $( '#wine-content' ).on( 'click', '.blog-post h3', this.loadwineposts )
+            $( '#wine-content' ).on( 'click', '.blog-post .thumbnail', this.loadwineposts )
             $( '#blog' ).on( 'click', '.blog-post h3', this.loadblogpost )
             $( '#blog' ).on( 'click', '.blog-post .thumbnail', this.loadblogpost )
            
@@ -40,21 +40,21 @@ jQuery(document).ready(function ($) {
 
         },
         
-        loadveggies : function() {
+        loadwine : function() {
             
-            var url = RESTURL + 'wp/v2/pages?_embed=true/&exclude=12, 48,2,772,1811,696,2187,2213,2180,2248,2307'
+            var url = RESTURL + 'wp/v2/pages?_embed=true/&exclude=12'
             
             $.get( url )
                 .done( function( response ) {
                     
-                    var veggies = {
-                        veggies: response
+                    var wine = {
+                        wine: response
                     }
                     
                     var template = $( '#blog-post-template' ).html()
-                    var output = $( '#veggie-content' )
+                    var output = $( '#wine-content' )
                                         
-                    var result = Mustache.to_html( template, veggies )
+                    var result = Mustache.to_html( template, wine )
                     output.append( result )
                     
                 })
@@ -71,14 +71,14 @@ jQuery(document).ready(function ($) {
             $.get( url )
                 .done( function( response ) {
                     
-                    var veggies = {
-                        veggies: response
+                    var wine = {
+                        wine: response
                     }
                     
                     var template = $( '#locations-post-template' ).html()
                     var output = $( '#locations-content' )
                                         
-                    var result = Mustache.to_html( template, veggies )
+                    var result = Mustache.to_html( template, wine )
                     output.append( result )
 
                     
@@ -97,14 +97,14 @@ jQuery(document).ready(function ($) {
             $.get( url )
                 .done( function( response ) {
                     
-                    var veggies = {
-                        veggies: response
+                    var wine = {
+                        wine: response
                     }
                     
                     var template = $( '#gallery-post-template' ).html()
                     var output = $( '#gallery-content' )
                                         
-                    var result = Mustache.to_html( template, veggies )
+                    var result = Mustache.to_html( template, wine )
                     output.append( result )
 
                     
@@ -143,7 +143,7 @@ jQuery(document).ready(function ($) {
         },
         
         
-        loadveggieposts : function() {
+        loadwineposts : function() {
             
             var id = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
             var url = RESTURL + 'wp/v2/pages/' + id + '?_embed'
@@ -153,7 +153,7 @@ jQuery(document).ready(function ($) {
 
                     
                     var template = $( '#single-post-template' ).html()
-                    var output = $( '#veggie-content' )
+                    var output = $( '#wine-content' )
                                         
                     var result = Mustache.to_html( template, response )
                     output.html( result )
