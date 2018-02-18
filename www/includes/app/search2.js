@@ -1,5 +1,6 @@
 jQuery(document).ready(function ($) {
 
+    var text = document.getElementById("search").value;
     const RESTURL = 'https://wine.orangehousellc.com/wp-json/'
 
     var app = {
@@ -42,7 +43,7 @@ jQuery(document).ready(function ($) {
         loadwine : function() {
             
             
-            var url = RESTURL + 'wp/v2/product?search=french&_embed=true&per_page=100'
+            var url = RESTURL + 'wp/v2/product?search='+ text + '&_embed=true&per_page=100'
             
             $.get( url )
                 .done( function( response ) {
