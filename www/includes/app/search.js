@@ -9,8 +9,7 @@ jQuery(document).ready(function ($) {
             this.getSiteData()
             this.loadwine()
             this.loadblog()
-            this.loadlocations()
-            this.loadgallery()
+       
            /* this.loadCategories() */
             this.loadActions()
     
@@ -42,7 +41,7 @@ jQuery(document).ready(function ($) {
         
         loadwine : function() {
             
-            var url = RESTURL + 'wp/v2/product?_embed=true&per_page=100'
+            var url = RESTURL + 'wp/v2/product?search=french&_embed=true&per_page=100'
             
             $.get( url )
                 .done( function( response ) {
@@ -64,57 +63,8 @@ jQuery(document).ready(function ($) {
 
         },
 
-        loadlocations : function() {
-          
-            var url = RESTURL + 'wp/v2/pages?_embed=true/&include=2180'
-            
-            $.get( url )
-                .done( function( response ) {
-                    
-                    var wine = {
-                        wine: response
-                    }
-                    
-                    var template = $( '#locations-post-template' ).html()
-                    var output = $( '#locations-content' )
-                                        
-                    var result = Mustache.to_html( template, wine )
-                    output.append( result )
-
-                    
-                })
-                .fail( function() {
-                    alert( 'cannot load posts' )
-                })
-
-
-        },
-
-        loadgallery : function() {
-          
-            var url = RESTURL + 'wp/v2/pages?_embed=true/&include=2307'
-            
-            $.get( url )
-                .done( function( response ) {
-                    
-                    var wine = {
-                        wine: response
-                    }
-                    
-                    var template = $( '#gallery-post-template' ).html()
-                    var output = $( '#gallery-content' )
-                                        
-                    var result = Mustache.to_html( template, wine )
-                    output.append( result )
-
-                    
-                })
-                .fail( function() {
-                    alert( 'cannot load posts' )
-                })
-
-
-        },
+        
+       
         
         
 
@@ -173,33 +123,7 @@ jQuery(document).ready(function ($) {
 
             
 
-        loadeventposts : function() {
-            
-            var id = Math.abs( $( this ).parent( '.blog-post' ).data( 'id' ) )
-            var url = RESTURL + 'wp/v2/pages/' + id + '?_embed=true'
-            
-            $.get( url )
-                .done( function( response ) {
-
-                    
-                    var template = $( '#single-post-template' ).html()
-                    var output = $( '#events-content' )
-                                        
-                    var result = Mustache.to_html( template, response )
-                    output.html( result )
-
-                    $(document).ready(function(){
-                    $(this).scrollTop(0);
-                });
-
-
-                    
-                })
-                .fail( function() {
-                    alert( 'cannot load post' )
-                })
-            
-        },
+        
 
 
         loadblogpost : function() {
