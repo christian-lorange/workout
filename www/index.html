@@ -12,6 +12,98 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
    <meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">
 
+<!-- External javascript -->
+        <script src="includes/lib/js/jquery.min.js"></script>
+        <script src="includes/lib/js/mustache.min.js"></script>
+        <script src="includes/app/main.js"></script>
+        <script src="includes/app/bootstrap.js"></script>
+        <script src="includes/app/npm.js"></script>
+        <script src="includes/app/custom.js"></script>   
+ <!-- End of external javascript -->      
+
+ 
+<!-- Internal Scripting -->
+    <!-- Navbar flip menu sections -->
+        <script type="text/javascript">
+           $(document).ready(function(){    
+            $(".flip").on("click", function(e) {  
+        
+        
+            var target = $(this).attr("href");
+            $(target).slideToggle("fast");
+            $(".panel").not(target).hide();
+            e.preventDefault();
+            });
+            });
+        </script>
+    <!-- End of navbar flip menu sections -->
+
+
+    <!-- Templates used by mustache -->   
+        <!-- "Blog Template" Front summary page filtering to detailed subpages (Title and featured image) -->
+        <script type="text/template" id="blog-post-template">
+
+        {{#wine}}
+        <div class="blog-post" data-id="{{id}}">
+            <h3>{{title.rendered}}</h3>
+            <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">
+        </div>
+        {{/wine}}
+
+
+        {{#posts}}
+        <div class="blog-post" data-id="{{id}}">
+            <h3>{{title.rendered}}</h3>
+            <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">       
+        </div>
+        {{/posts}}
+        </script>
+
+        <!-- "Location Template" Render all html content (no selective - all shown) -->
+        <script type="text/template" id="locations-post-template">
+        {{#wine}}
+        <div class="blog-post" data-id="{{id}}">
+            <p>{{{content.rendered}}} </p>
+        </div>
+        {{/wine}}       
+        </script>
+
+        <!-- "Location Template" Render all html content (no selective - all shown) Currently redundent of location -->
+        <script type="text/template" id="gallery-post-template">
+        {{#wine}}
+        <div class="blog-post" data-id="{{id}}">
+            <p>{{{content.rendered}}} </p>
+        </div>
+        {{/wine}}
+        </script>          
+
+        <!-- "Single Post Template" Render title and content - Include back/refresh button to go back to category level (blog tempate) -->   
+        <script type="text/template" id="single-post-template">
+        <div class="blog-post" data-id="{{id}}">
+           <button onclick="back_button()" class="btn btn-primary btn-lg text-center">Back</button>
+            <h3>{{title.rendered}} </h3>
+            <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">
+            <div>{{{content.rendered}}}</div>          
+        </div>
+        </script>
+    <!-- End of templates used by mustache --> 
+
+    <!-- Scripting that clears out appended content and reloads main.js script (repulls data) --> 
+        <script type="text/javascript">
+        function back_button() {
+
+         $("#wine-content").empty();
+         $("#blog").empty();   
+
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "includes/app/main.js."; 
+        document.getElementsByTagName("head")[0].appendChild(script);
+        return false;
+                                }
+        </script>
+
+
     </head>
     <body>
 
@@ -106,96 +198,7 @@
 -->
 <!-- End of "subpage" content sections -->
 
-<!-- External javascript -->
-        <script src="includes/lib/js/jquery.min.js"></script>
-        <script src="includes/lib/js/mustache.min.js"></script>
-        <script src="includes/app/main.js"></script>
-        <script src="includes/app/bootstrap.js"></script>
-        <script src="includes/app/npm.js"></script>
-        <script src="includes/app/custom.js"></script>   
- <!-- End of external javascript -->      
 
- 
-<!-- Internal Scripting -->
-    <!-- Navbar flip menu sections -->
-        <script type="text/javascript">
-           $(document).ready(function(){    
-            $(".flip").on("click", function(e) {  
-        
-        
-            var target = $(this).attr("href");
-            $(target).slideToggle("fast");
-            $(".panel").not(target).hide();
-            e.preventDefault();
-            });
-            });
-        </script>
-    <!-- End of navbar flip menu sections -->
-
-
-    <!-- Templates used by mustache -->   
-        <!-- "Blog Template" Front summary page filtering to detailed subpages (Title and featured image) -->
-        <script type="text/template" id="blog-post-template">
-
-        {{#wine}}
-        <div class="blog-post" data-id="{{id}}">
-            <h3>{{title.rendered}}</h3>
-            <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">
-        </div>
-        {{/wine}}
-
-
-        {{#posts}}
-        <div class="blog-post" data-id="{{id}}">
-            <h3>{{title.rendered}}</h3>
-            <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">       
-        </div>
-        {{/posts}}
-        </script>
-
-        <!-- "Location Template" Render all html content (no selective - all shown) -->
-        <script type="text/template" id="locations-post-template">
-        {{#wine}}
-        <div class="blog-post" data-id="{{id}}">
-            <p>{{{content.rendered}}} </p>
-        </div>
-        {{/wine}}       
-        </script>
-
-        <!-- "Location Template" Render all html content (no selective - all shown) Currently redundent of location -->
-        <script type="text/template" id="gallery-post-template">
-        {{#wine}}
-        <div class="blog-post" data-id="{{id}}">
-            <p>{{{content.rendered}}} </p>
-        </div>
-        {{/wine}}
-        </script>          
-
-        <!-- "Single Post Template" Render title and content - Include back/refresh button to go back to category level (blog tempate) -->   
-        <script type="text/template" id="single-post-template">
-        <div class="blog-post" data-id="{{id}}">
-           <button onclick="back_button()" class="btn btn-primary btn-lg text-center">Back</button>
-            <h3>{{title.rendered}} </h3>
-            <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">
-            <div>{{{content.rendered}}}</div>          
-        </div>
-        </script>
-    <!-- End of templates used by mustache --> 
-
-    <!-- Scripting that clears out appended content and reloads main.js script (repulls data) --> 
-        <script type="text/javascript">
-        function back_button() {
-
-         $("#wine-content").empty();
-         $("#blog").empty();   
-
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "includes/app/main.js."; 
-        document.getElementsByTagName("head")[0].appendChild(script);
-        return false;
-                                }
-        </script>
 
         
     
