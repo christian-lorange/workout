@@ -42,7 +42,7 @@ jQuery(document).ready(function ($) {
         
         loadwine : function() {
             
-            var url = RESTURL + 'wp/v2/product?_embed=true&per_page=100'
+            var url = RESTURL + 'wp/v2/product?_embed=true&per_page=25'
             
             $.get( url )
                 .done( function( response ) {

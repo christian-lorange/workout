@@ -3169,7 +3169,7 @@ li {
 /*Formatting panels so that only one is shown at a time. Home is displayed on loading*/
 .panel {
 	padding-bottom:50px;
-	display:none;
+/*	display:none;*/
 
 }
 
@@ -3329,3 +3329,9 @@ li {
 .nav_text {
 	background-color: white
 	}
+
+/* Search button formatting */
+button#btnSearch {
+    float: right;
+    width: 30%;
+}
