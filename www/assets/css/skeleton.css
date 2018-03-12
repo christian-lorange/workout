@@ -126,7 +126,7 @@
     /* Note: Design for a width of 320px */
 
     @media only screen and (max-width: 767px) {
-        .container { width: 300px; }
+        .container { width: 100%; }
         .columns, .column { margin: 0; }
 
         .container .one.column,

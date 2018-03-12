@@ -3077,6 +3077,7 @@ header {
 
 .navbar-default   {
 	z-index: 999;
+	height: auto;
 }
 
 .navbar-default .navbar-brand  {
