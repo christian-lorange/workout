@@ -13,16 +13,19 @@
 
      
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
-   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' http://wine.orangehousellc.com; connect-src http://wine.orangehousellc.com">
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' http://cross.orangehousellc.com; connect-src http://cross.orangehousellc.com">
 
 
     </head>
-    <body>
+    <body style="background: url('assets/img/fitness_background.png') no-repeat center center fixed; -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
 
 
 <!-- Static navbar -->
 
-      <nav class="navbar navbar-default">
+          <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -36,46 +39,64 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a class="" href="index.html">Home</a></li>
+                <li><a class="" href="wod.html">Workout of the Day</a></li>
                 <li><a class="" href="log.html">Workout Log</a></li>
                 <li><a class="" href="hiit.html">HIIT Timer</a></li>
                 <li><a class="" href="stopwatch.html">Stopwatch</a></li>
+                <li><a class="" href="schedule.html">Class Schedules</a></li>
+                <li><a class="" href="about.html">Gym Information</a></li>
 
             </ul>
             
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-
 <!-- End of static navbar -->
 
 <!-- "Home" page content-->
+
         <div class="panel" id="home">
             <div class="row" id="content">
                 <div class="medium-12 columns" id="home-content">
-                    <div class="home_section" id="home_section1"> 
-                        <div class="container"><a class="nav_text" href="log.html">Log My Workouts</a></div>
+                    <div class="home_section" > 
+                        <div class="container">
+                            <div class="home_button"><a class="nav_text" href="log.html" ><img src="assets/img/log.png"></a></div>
+                            <div class="home_button"><a class="nav_text" href="wod.html"><img src="assets/img/wod.png"></a></div>
+                       
+                        </div>
                     </div>
-                   <!--<div class="home_section" id="home_section2"> 
-                        <div class="container"><a class="nav_text" href="search.html">Search for Wine</a></div>
-                    </div>-->
-                     <div class="home_section" id="home_section3"> 
-                        <div class="container"><a class="flip nav_text" href="hiit.html">HIIT Timer</a></div>
-                    </div>
-                    <div class="home_section" id="home_section4"> 
-                        <div class="container"><a class="flip nav_text" href="stopwatch.html">Stopwatch</a></div>
-                    </div>
-                  
                 </div>
+
+                <div class="medium-12 columns" id="home-content">
+                    <div class="home_section" > 
+                        <div class="container">
+                            <div class="home_button"><a class="nav_text" href="stopwatch.html"><img src="assets/img/stopwatch.png"></a></div>
+                            <div class="home_button"><a class="nav_text" href="hiit.html"><img src="assets/img/hiit.png"></a></div> 
+                        </div>
+                    </div>
+                </div>
+
+               <!-- <div class="medium-12 columns" id="home-content">
+                    <div class="home_section" > 
+                        <div class="container">
+                            <div class="home_button"><a class="nav_text" href="log.html">Log My Workouts</a></div>
+                            <div class="home_button"><a class="nav_text" href="log.html">Log My Workouts</a></div>
+                        </div>
+                    </div>
+                </div>-->
+             
+             
             </div>
         </div>
 <!-- End of "Home" page content-->
 
 <!-- "Subpage"content sections -->
-        <div class="panel" id="wine">
+    <div class="panel announcement" id="announce">
+        <h2 style="text-align: center;">Announcements </h2>
             <div class="row" id="content">
-                <div class="medium-12 columns" id="wine-content"></div>
+                <div class="medium-12 columns" id="announcement"></div>
             </div>
-        </div>
+    </div>
 
        
 
@@ -98,7 +119,7 @@
 <!-- External javascript -->
         <script src="includes/lib/js/jquery.min.js"></script>
         <script src="includes/lib/js/mustache.min.js"></script>
-<!--        <script src="includes/app/main.js"></script>-->
+        <script src="includes/app/main.js"></script>
         <script src="includes/app/bootstrap.js"></script>
         <script src="includes/app/npm.js"></script>
         <script src="includes/app/custom.js"></script>   
@@ -114,41 +135,17 @@
 
     <!-- Templates used by mustache -->   
         <!-- "Blog Template" Front summary page filtering to detailed subpages (Title and featured image) -->
-        <script type="text/template" id="blog-post-template">
+         <script type="text/template" id="blog-post-template">
 
-        {{#wine}}
-        <div class="blog-post" data-id="{{id}}">
+        {{#announce}}
+        <div class="annouce_style">
+        <div class="blog-post" data-id="{{id}}" >
             <h3>{{title.rendered}}</h3>
-            <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">
+            <p>Read More</p>
+       </div>
         </div>
-        {{/wine}}
-
-
-        {{#posts}}
-        <div class="blog-post" data-id="{{id}}">
-            <h3>{{title.rendered}}</h3>
-            <img class="thumbnail" src="{{_embedded.wp:featuredmedia.0.source_url}}">       
-        </div>
-        {{/posts}}
+        {{/announce}}
         </script>
-
-        <!-- "Location Template" Render all html content (no selective - all shown) -->
-        <script type="text/template" id="locations-post-template">
-        {{#wine}}
-        <div class="blog-post" data-id="{{id}}">
-            <p>{{{content.rendered}}} </p>
-        </div>
-        {{/wine}}       
-        </script>
-
-        <!-- "Location Template" Render all html content (no selective - all shown) Currently redundent of location -->
-        <script type="text/template" id="gallery-post-template">
-        {{#wine}}
-        <div class="blog-post" data-id="{{id}}">
-            <p>{{{content.rendered}}} </p>
-        </div>
-        {{/wine}}
-        </script>          
 
         <!-- "Single Post Template" Render title and content - Include back/refresh button to go back to category level (blog tempate) -->   
         <script type="text/template" id="single-post-template">
@@ -159,13 +156,21 @@
             <div>{{{content.rendered}}}</div>          
         </div>
         </script>
+
+        <script type="text/template" id="single-announcement-template">
+        <div class="blog-post" data-id="{{id}}">
+           <button onclick="back_button()" class="btn btn-primary btn-lg text-center">Back</button>
+            <h3>{{title.rendered}} </h3>
+            <div>{{{content.rendered}}}</div>          
+        </div>
+        </script>
     <!-- End of templates used by mustache --> 
 
     <!-- Scripting that clears out appended content and reloads main.js script (repulls data) --> 
         <script type="text/javascript">
         function back_button() {
 
-         $("#wine-content").empty();
+         $("#announcement").empty();
          $("#blog").empty();   
 
         var script = document.createElement("script");

@@ -913,15 +913,15 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 	line-height: 0
 }
 h1 {
-	font-size: 1.5rem
+	font-size: 1.5rem;
 	font-weight: bolder;
 }
 h2 {
-	font-size: 1.25rem
+	font-size: 2.0rem;
 	font-weight: bolder;
 }
 h3 {
-	font-size: 1.1875rem
+	font-size: 1.8875rem
 }
 h4 {
 	font-size: 1.125rem
@@ -3066,18 +3066,19 @@ header {
 #nav {
 
 	float: right;
-	padding: 20px;
+	padding: 0px;
 	background: url(../assets/img/menu-icon.png) center;	
 
 }
 
 .navbar-header {
-	background-color: #2c5607;
+	background-color: #000;
 }
 
 .navbar-default   {
 	z-index: 999;
 	height: auto;
+	background-color: #000;
 }
 
 .navbar-default .navbar-brand  {
@@ -3124,7 +3125,7 @@ li {
 
 
 /*MEDIA QUERY*/
-@media only screen and (max-width : 640px) {
+@media only screen and (max-width : 1000px) {
 
 	header {
 
@@ -3141,7 +3142,7 @@ li {
 	nav ul, nav:active ul { 
 
 		display: none;
-		position: absolute;
+		
 		padding: 20px;
 		background: #fff;
 		top: 60px;
@@ -3162,19 +3163,40 @@ li {
 	nav:hover ul {
 
 		display: block;
-		background: lightblue
+		background: black;
+		top:45px;
+		margin:auto;
 
 	}
 
 	.navbar-default .navbar-nav > li > a {
 		font-weight: bold;
+		color: #FFF;
+		text-align: center;
+		font-size: 1.8em;
+		
+
 	}
-}
+
+		.navbar-default .navbar-nav > li {
+		border:solid;
+		border-color: white;
+		padding: 3vw;
+
+	}
+
+	.nav {
+		padding:3vw;
+	}
+
+
+
 
 
 /*Formatting panels so that only one is shown at a time. Home is displayed on loading*/
 .panel {
 	padding-bottom:50px;
+	background-color: transparent;
 /*	display:none;*/
 
 }
@@ -3333,11 +3355,70 @@ li {
 
 /* Formatting of banner image navigation */
 .nav_text {
-	background-color: white
+	background-color: white;
+	position: relative;
+  top: 0%;
+  
 	}
 
 /* Search button formatting */
 button#btnSearch {
     float: right;
     width: 30%;
+}
+
+
+.annouce_style {
+	border-style: dashed;
+	padding: 3vw;
+	background-color: white;
+	margin: 3vw;
+	box-shadow: 3px 3px grey;
+	border-radius: 30px;
+	text-align: center;
+}
+
+.announcement {
+	background-color: white;
+	text-align: center;
+	padding-bottom: 0;
+}
+
+.home_button {
+	width: 45vw;
+	text-align: center;
+	height: 45vw;
+	margin: 1.5vw;
+}
+
+.home_button img {
+	border-radius: 20px;
+	box-shadow: 3px 3px grey;
+}
+
+.home_button_a {
+	position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+@media (min-width: 768px) {
+.navbar-toggle {
+    display: block;
+    float:right;
+
+};
+
+
+
+
+}
+
+.navbar-header {
+	float:none !important;
+}
+
+.blog-post h3 {
+	text-align: center;
 }
