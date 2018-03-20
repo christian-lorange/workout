@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
                     $( '.description' ).html( response.description )
                 })
                 .fail( function() {
-                    alert( 'failed to call specified URL' )
+                    alert( 'Oh no! We are struggling to get the latest data. Lets try that again. Please make sure you have a data connection.' )
                 })
 
         },
@@ -61,7 +61,7 @@ jQuery(document).ready(function ($) {
                     
                 })
                 .fail( function() {
-                    alert( 'cannot load posts' )
+                    alert( 'Oh no! We are struggling to get the latest data. Lets try that again. Please make sure you have a data connection.' )
                 })
             
         },
@@ -91,7 +91,7 @@ jQuery(document).ready(function ($) {
                     
                 })
                 .fail( function() {
-                    alert( 'cannot load post' )
+                    alert( 'Oh no! We are struggling to get the latest data. Lets try that again. Please make sure you have a data connection.' )
                 })
             
         },
@@ -115,7 +115,7 @@ jQuery(document).ready(function ($) {
                     
                 })
                 .fail( function() {
-                    alert( 'cannot load posts' )
+                    alert( 'Oh no! We are struggling to get the latest data. Lets try that again. Please make sure you have a data connection.' )
                 })
             
         },
@@ -145,7 +145,7 @@ jQuery(document).ready(function ($) {
                     
                 })
                 .fail( function() {
-                    alert( 'cannot load post' )
+                    alert( 'Oh no! We are struggling to get the latest data. Lets try that again. Please make sure you have a data connection.' )
                 })
             
         },
@@ -170,7 +170,7 @@ jQuery(document).ready(function ($) {
                     
                 })
                 .fail( function() {
-                    alert( 'cannot load posts' )
+                    alert( 'Oh no! We are struggling to get the latest data. Lets try that again. Please make sure you have a data connection.' )
                 })
             
         }

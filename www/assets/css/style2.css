@@ -3,7 +3,7 @@
 @import url(layout.css);
 @import url(jquery.jqplot.css);
 
-html, body {background: url('../images/fabric_plaid.png');}
+html, body {}
 a {text-decoration: none;}
 #head {margin-top: 20px;}
 .workout, #new-workout {border: 1px solid #333333; border-radius: 3px; background-color: #fff;}
